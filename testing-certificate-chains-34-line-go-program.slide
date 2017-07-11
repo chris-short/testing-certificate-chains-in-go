@@ -3,13 +3,12 @@ GopherCon 2017 Lightning Talk
 
 Chris Short
 Manager of DevOps at Bankrate
-@ChrisShort
+chris@chrisshort.net
 https://devopsish.com
+@ChrisShort
 
 * Introduction
-
 Chris Short
-Manager of DevOps at Bankrate
 
 - opensource.com and DZone Contributor
 - Contributed to The Open Organization Guide to IT Culture Change
@@ -18,9 +17,27 @@ Manager of DevOps at Bankrate
 - chrisshort.net
 
 * But Most Importantly
-
 .image img/gopherize-me-chris-short.png _ 550
-.caption _Gopher_ by [[https://gopherize.me/][Gopherize.me]]
+.caption Gopher by [[https://gopherize.me/][Gopherize.me]]
 
-* Let's Talk Certificate Chains
+* Not Too Long Ago in a Place of Work Far, Far Away...
+.image img/backstory.png 575 _
+
+* 
+.image img/2-chainz-tell-em.png _ 550
+.caption 2 Chainz
+
+* This is the Goal
+.image img/chrisshort_net-qualys.png 525 _
+.caption Qualys SSL Labs Scan of [[https://chrisshort.net][chrisshort.net]]
+
+* NBD ... OMG
+.image img/ssl-vendors-suck.png 550 _
+
+* 
+.image img/jackie-chan.jpg 550 _
+
+* So what does any good engineer do?
+.image img/GO_BUILD.png _ 500
+.caption GO BUILD by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
 
