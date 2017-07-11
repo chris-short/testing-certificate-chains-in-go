@@ -41,3 +41,23 @@ Chris Short
 .image img/GO_BUILD.png _ 500
 .caption GO BUILD by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
 
+* Three Go Packages: log
+- The Go `log` package is pretty self explanatory
+- It's the package that enables logging
+- There should be a spectacular failure at the sign of trouble
+- `log` has three helper functions: `print`, `fatal`, and `panic`
+- Output from the package goes to `stderr`
+- I used a `fatal` error to get the web server to stop and log any issue
+
+* Three Go Packages: crypto/tls
+- The Go `crypto/tls` package partially implements TLS 1.2, as specified in RFC 5246
+- This is the package that configures SSL/TLS versions that can be used
+- Identifies preferred cipher suites and elliptic curves used during handshakes
+- This is the package that handles connections securely
+
+* Three Go Packages: net/http
+- Go web server is the `net/http` package
+- Go implementation of HTTP
+- `net/http` has a function called `ListenAndServeTLS`
+- ListenAndServeTLS provides the desired certificate checking functionality
+- "If the certificate is signed by a certificate authority, the certFile should be the concatenation of the server's certificate, any intermediates, and the CA's certificate."
