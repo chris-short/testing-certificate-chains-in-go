@@ -2,10 +2,25 @@ Golang to the rescue: Saving DevOps from TLS turmoil
 GopherCon 2017 Lightning Talk
 
 Chris Short
-Manager, DevOps at Bankrate
+Manager of DevOps at Bankrate
 @ChrisShort
 https://devopsish.com
 
-* Title of slide or section (must have asterisk)
+* Introduction
 
-Some Text
+Chris Short
+Manager of DevOps at Bankrate
+
+- opensource.com and DZone Contributor
+- Contributed to The Open Organization Guide to IT Culture Change
+- DevOpsDays Speaker and Organizer
+- devopsish.com
+- chrisshort.net
+
+* But Most Importantly
+
+.image img/gopherize-me-chris-short.png _ 550
+.caption _Gopher_ by [[https://gopherize.me/][Gopherize.me]]
+
+* Let's Talk Certificate Chains
+
