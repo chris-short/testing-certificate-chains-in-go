@@ -68,11 +68,15 @@ Chris Short
 .image img/GOPHER_INCLUSION.png _ 275
 .caption Gopher Inclusion by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
 
-* #muxlife
+* main: mux, cfg, srv
 - Code creates a `mux`, short for HTTP request multiplexer
 - `mux` has a function that creates an HTTP server with headers and content (Hello World!)
 - `cfg` brings in all the TLS bits seen in a solid web server config
 - `srv` puts the pieces together and defines what port to listen on
-** `log.Fatal(srv.ListenAndServeTLS("/etc/ssl-tester/tls.crt", "/etc/ssl-tester/tls.key"))`
+
+* Fail Spectacularly
+- I do DevOps. I embrace failure.
+- `log.Fatal(srv.ListenAndServeTLS("/etc/ssl-tester/tls.crt", "/etc/ssl-tester/tls.key"))`
 - Defines path of certificate files to use
 - Also logs a fatal error if certificate is not valid
+- Fails Fast
