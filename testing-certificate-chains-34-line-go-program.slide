@@ -15,37 +15,76 @@ Chris Short
 - DevOpsDays Speaker and Organizer
 - devopsish.com
 - chrisshort.net
+: Hi! I'm Chris!
+: I contribute content a few places
+: I work in the DevOps space
+: I run a DevOps Newsletter called DevOps'ish if you're into those
 
 * But Most Importantly
 .image img/gopherize-me-chris-short.png _ 550
 .caption Me in Gopher Form by [[https://gopherize.me/][Gopherize.me]]
+: But Most Importantly, I'm a Gopher
 
 * Not Too Long Ago in a Place of Work Far, Far Away...
 .image img/backstory.png 575 _
+: My team inherited an application
+: A third-party built the app a few years ago 
+: Had long been abandoned
+: Before we could do any re-engineering work, we had to resolve a critical issue.
+: The certificates were about to expire!
 
-* 
-.image img/2-chainz-tell-em.png _ 550
+* Let's Talk Certificate Chains
+.image img/2-chainz-tell-em.png _ 525
 .caption 2 Chainz
+: Let's Talk Certificate Chains for a minute
+: HTTPS, SSL it's all TLS, right?
+: In my opinion, if you're using TLS you better have a rock solid configuration
+: This means you have to include the certificate chain in the correct order
+: This is no longer optional in the post-Heartbleed world
+: The Internets are watching
 
 * This is the Goal
 .image img/chrisshort_net-qualys.png 525 _
 .caption Qualys SSL Labs Scan of [[https://chrisshort.net][chrisshort.net]]
+: If you are going to bother to encrypt your traffic you better do it right
+: This is what we're aiming for; an A+
+: At a previous employer we obtained certs from a reputable vendor that our company was cool with
+: I prefer Let's Encrypt but some companies aren't there yet for various reasons
+: You generate your CSR and private key
+: You send the CSR to the vendor
+: The certificate arrives but doesn't have an intermediate key in chain
 
 * NBD ... OMG
 .image img/ssl-vendors-suck.png 550 _
+: No big deal
+: Let's go to the vendor's documentation...
+: And OMG...
+: The vendor docs are terrible
+: This is when you learn...
+: Cryptography is hard but implementing cryptographic best practices might be even harder
 
 * 
 .image img/jackie-chan.jpg 550 _
 .caption Jackie Chan, y'all
+: What do we do?
+: Look at statistical probabilities and start shuffling keys around?
+: The series of games you have to play with openssl or nginx or some other method aren't intuitive
+: Don't forget THIS (holds up punch card) was good UX and UI not too long ago
 
 * So What Does Any Good Engineer Do?
 .image img/go_build.png _ 500
 .caption Go Build by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
+: I needed a tool that would fail if the certificate chain provided was incorrect
+: I wanted a lightweight tool that could be publicly accessible
+: Conducting a third-party analysis of the certificates and configuration was also a requirement
+: There were no tools that I could find meeting these needs
+: So I decided to build my own
+: With Go of course!
 
 * Three Go Packages: log
 - The go `log` package is pretty self explanatory
 - Package that enables logging
-- There should be a spectacular failure at the sign of trouble
+- Neeeded a spectacular failure at the sign of trouble
 - `log` has three helper functions: `print`, `fatal`, and `panic`
 - Output from the package goes to `stderr`
 - Used a `fatal` error to get the web server to stop and log any issue
@@ -90,7 +129,7 @@ Chris Short
 
 * Conclusion
 - The Go code does exactly what I need it to do and nothing more
-- Only 34 lines of code!!! I ❤️ Go!
+- Only 38 lines of code!!! I ❤️ Go!
 - Binary is a self contained web server
 - Less than 6MB!!! I ❤️ Go!
 - Can be safely deployed to any public server and have tests run against it for extra vetting
