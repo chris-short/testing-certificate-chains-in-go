@@ -44,8 +44,7 @@ Chris Short
 : The Internets are watching
 
 * This is the Goal
-.image img/chrisshort_net-qualys.png 525 _
-.caption Qualys SSL Labs Scan of [[https://chrisshort.net][chrisshort.net]]
+.image img/chrisshort_net-qualys.png 600 _
 : If you are going to bother to encrypt your traffic you better do it right
 : This is what we're aiming for; an A+
 : At a previous employer we obtained certs from a reputable vendor that our company was cool with
@@ -92,7 +91,7 @@ Chris Short
 .caption Hugging Gophers by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
 
 * Three Go Packages: crypto/tls
-- The Go `crypto/tls` package partially implements TLS 1.2, as specified in RFC 5246
+- The Go `crypto/tls` package partially implements TLS 1.2, as specified in [[https://tools.ietf.org/html/rfc5246][RFC 5246]]
 - Package configures usable SSL/TLS versions
 - Identifies preferred cipher suites and elliptic curves used during handshakes
 - This is the package that handles connections securely
@@ -122,10 +121,26 @@ Chris Short
 - Also logs a fatal error if certificate is not valid
 - Fails Fast
 .image img/nuclear-weapons-test-explosion.jpg 250 _
+: I love DevOps and I embrace failure
+: log allows us to fail quickly if the certificates aren't in accordance with RFC
+: This is the beauty of crypto/tls
+: Stuff in the standard library JUST WORKS
 
 * It's Open Source!
 .image img/ssl-tester.png 525 _
 .caption [[https://github.com/chris-short/ssl-tester][https://github.com/chris-short/ssl-tester]]
+: The code is opensourced
+: Check it out on github.com/chris-short/ssl-tester
+: Throw a star my way if you feel like it
+
+* It Works!
+.image img/ssl-tester-output.png 600 _
+: Yes it Works
+: Yes you can access it now
+
+* No. It Really Works!
+.image img/ssltest-gophercon_chrisshort_net.png 600 _
+: You can even scan it with external tools!
 
 * Conclusion
 - The Go code does exactly what I need it to do and nothing more
