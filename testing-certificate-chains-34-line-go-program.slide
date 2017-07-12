@@ -36,7 +36,7 @@ Chris Short
 
 * 
 .image img/jackie-chan.jpg 550 _
-.caption Jackie Chan
+.caption Jackie Chan, y'all
 
 * So What Does Any Good Engineer Do?
 .image img/go_build.png _ 500
@@ -82,4 +82,17 @@ Chris Short
 - Defines path of certificate files to use
 - Also logs a fatal error if certificate is not valid
 - Fails Fast
-.image img/nuclear-weapons-test-explosion.jpg 300 _
+.image img/nuclear-weapons-test-explosion.jpg 250 _
+
+* It's Open Source!
+.image img/ssl-tester.png 525 _
+.caption [[https://github.com/chris-short/ssl-tester][https://github.com/chris-short/ssl-tester]]
+
+* Conclusion
+- The Go code does exactly what I need it to do and nothing more
+- Only 34 lines of code!!! I ❤️ Go!
+- Binary is a self contained web server
+- Less than 6MB!!! I ❤️ Go!
+- Can be safely deployed to any public server and have tests run against it for extra vetting
+.image img/GOPHER_MIC_DROP.png 225 _
+.caption Gopher Mic Drop by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]] 
