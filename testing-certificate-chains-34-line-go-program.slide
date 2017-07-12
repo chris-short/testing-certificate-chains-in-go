@@ -18,7 +18,7 @@ Chris Short
 
 * But Most Importantly
 .image img/gopherize-me-chris-short.png _ 550
-.caption Gopher by [[https://gopherize.me/][Gopherize.me]]
+.caption Me in Gopher Form by [[https://gopherize.me/][Gopherize.me]]
 
 * Not Too Long Ago in a Place of Work Far, Far Away...
 .image img/backstory.png 575 _
@@ -36,28 +36,43 @@ Chris Short
 
 * 
 .image img/jackie-chan.jpg 550 _
+.caption Jackie Chan
 
-* So what does any good engineer do?
-.image img/GO_BUILD.png _ 500
-.caption GO BUILD by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
+* So What Does Any Good Engineer Do?
+.image img/go_build.png _ 500
+.caption Go Build by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
 
 * Three Go Packages: log
-- The Go `log` package is pretty self explanatory
-- It's the package that enables logging
+- The go `log` package is pretty self explanatory
+- Package that enables logging
 - There should be a spectacular failure at the sign of trouble
 - `log` has three helper functions: `print`, `fatal`, and `panic`
 - Output from the package goes to `stderr`
-- I used a `fatal` error to get the web server to stop and log any issue
+- Used a `fatal` error to get the web server to stop and log any issue
+.image img/hugging_gophers.png _ 225
+.caption Hugging Gophers by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
 
 * Three Go Packages: crypto/tls
 - The Go `crypto/tls` package partially implements TLS 1.2, as specified in RFC 5246
-- This is the package that configures SSL/TLS versions that can be used
+- Package configures usable SSL/TLS versions
 - Identifies preferred cipher suites and elliptic curves used during handshakes
 - This is the package that handles connections securely
+.image img/GOPHER_STAR_WARS.png _ 375
+.caption Gopher Star Wars by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
 
 * Three Go Packages: net/http
-- Go web server is the `net/http` package
 - Go implementation of HTTP
 - `net/http` has a function called `ListenAndServeTLS`
 - ListenAndServeTLS provides the desired certificate checking functionality
 - "If the certificate is signed by a certificate authority, the certFile should be the concatenation of the server's certificate, any intermediates, and the CA's certificate."
+.image img/GOPHER_INCLUSION.png _ 275
+.caption Gopher Inclusion by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
+
+* #muxlife
+- Code creates a `mux`, short for HTTP request multiplexer
+- `mux` has a function that creates an HTTP server with headers and content (Hello World!)
+- `cfg` brings in all the TLS bits seen in a solid web server config
+- `srv` puts the pieces together and defines what port to listen on
+** `log.Fatal(srv.ListenAndServeTLS("/etc/ssl-tester/tls.crt", "/etc/ssl-tester/tls.key"))`
+- Defines path of certificate files to use
+- Also logs a fatal error if certificate is not valid
