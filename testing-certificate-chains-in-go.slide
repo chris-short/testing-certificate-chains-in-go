@@ -68,11 +68,11 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 : Cryptography is hard but implementing cryptographic best practices might be even harder
 
 * 
-.image img/jackie-chan.jpg 550 _
-.caption Jackie Chan, y'all
+.image img/mj-annoyed.gif 550 _
 : What do we do?
 : Look at statistical probabilities and start shuffling keys around?
 : The series of games you have to play with openssl or nginx or some other method aren't intuitive
+: Do you know how hard this is to explain to people?
 
 * Never Forget
 .image img/punch-card.jpg _ 500
