@@ -15,10 +15,15 @@ Chris Short
 - DevOpsDays Speaker and Organizer
 - devopsish.com
 - chrisshort.net
+
+This talk was dervied from an opensource.com article I wrote in April 2017:
+[[https://opensource.com/article/17/4/testing-certificate-chains-34-line-go-program][Golang to the rescue: Saving DevOps from TLS turmoil]]
+
 : Hi! I'm Chris!
 : I contribute content a few places
 : I work in the DevOps space
 : I run a DevOps Newsletter called DevOps'ish if you're into those
+: This talk was dervied from an opensource.com article I wrote in April 2017
 
 * But Most Importantly
 .image img/gopherize-me-chris-short.png _ 550
@@ -35,7 +40,7 @@ Chris Short
 
 * Let's Talk Certificate Chains
 .image img/2-chainz-tell-em.png _ 525
-.caption 2 Chainz
+.caption 2 Chainz (we can talk rap music later)
 : Let's Talk Certificate Chains for a minute
 : HTTPS, SSL it's all TLS, right?
 : In my opinion, if you're using TLS you better have a rock solid configuration
@@ -68,6 +73,9 @@ Chris Short
 : What do we do?
 : Look at statistical probabilities and start shuffling keys around?
 : The series of games you have to play with openssl or nginx or some other method aren't intuitive
+
+* Never Forget
+.image img/punch-card.jpg _ 500
 : Don't forget THIS (holds up punch card) was good UX and UI not too long ago
 
 * So What Does Any Good Engineer Do?
@@ -134,12 +142,12 @@ Chris Short
 : Throw a star my way if you feel like it
 
 * It Works!
-.image img/ssl-tester-output.png 600 _
+.image img/ssl-tester-output.png 800 _
 : Yes it Works
 : Yes you can access it now
 
 * No. It Really Works!
-.image img/ssltest-gophercon_chrisshort_net.png 600 _
+.image img/ssltest-ssl-tester-chrisshort-net.png 600 _
 : You can even scan it with external tools!
 
 * Conclusion
