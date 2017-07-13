@@ -76,6 +76,7 @@ This talk was dervied from an opensource.com article I wrote in April 2017:
 
 * Never Forget
 .image img/punch-card.jpg _ 500
+.caption This was once a good UI and UX
 : Don't forget THIS (holds up punch card) was good UX and UI not too long ago
 
 * So What Does Any Good Engineer Do?
@@ -152,7 +153,7 @@ This talk was dervied from an opensource.com article I wrote in April 2017:
 
 * Conclusion
 - The Go code does exactly what I need it to do and nothing more
-- Only 38 lines of code!!! I ❤️ Go!
+- About 40 lines of code!!! I ❤️ Go!
 - Binary is a self contained web server
 - Less than 6MB!!! I ❤️ Go!
 - Can be safely deployed to any public server and have tests run against it for extra vetting
