@@ -38,6 +38,10 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 : Before we could do any re-engineering work, we had to resolve a critical issue.
 : The certificates were about to expire!
 
+* 
+.image img/bill-murray-toaster.gif 525 _
+: Oh! And the only environment this application had was production
+
 * Let's Talk Certificate Chains
 .image img/2-chainz-tell-em.png _ 525
 .caption 2 Chainz (we can talk rap music later)
@@ -156,6 +160,7 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 - About 40 lines of code!!! I ❤️ Go!
 - Binary is a self contained web server
 - Less than 6MB!!! I ❤️ Go!
-- Can be safely deployed to any public server and have tests run against it for extra vetting
+- Can be safely deployed to any public server
+- External testing run against it for extra vetting
 .image img/GOPHER_MIC_DROP.png 225 _
 .caption Gopher Mic Drop by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]] 
