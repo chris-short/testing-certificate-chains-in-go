@@ -10,11 +10,11 @@ https://devopsish.com
 * Introduction
 Chris Short
 
-- opensource.com and DZone Contributor
-- Contributed to The Open Organization Guide to IT Culture Change
-- DevOpsDays Speaker and Organizer
-- devopsish.com
-- chrisshort.net
+- [[https://opensource.com/users/chrisshort][opensource.com]] and [[https://dzone.com/users/2868764/chrisshort.html][DZone]] Contributor
+- Contributed to [[https://opensource.com/open-organization/resources/culture-change][The Open Organization Guide to IT Culture Change]]
+- [[https://www.devopsdays.org/][DevOpsDays]] Speaker and Organizer
+- [[https://devopsish.com/][DevOps'ish]]
+- [[https://chrisshort.net][chrisshort.net]]
 
 This talk was derived from an opensource.com article I wrote in April 2017:
 [[https://opensource.com/article/17/4/testing-certificate-chains-34-line-go-program][Golang to the rescue: Saving DevOps from TLS turmoil]]
@@ -31,7 +31,7 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 : But Most Importantly, I'm a Gopher
 
 * Not Too Long Ago in a Place of Work Far, Far Away...
-.image img/backstory.png 575 _
+.image img/backstory.png 550 _
 : My team inherited an application
 : A third-party built the app a few years ago 
 : Had long been abandoned
@@ -40,7 +40,8 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 
 * 
 .image img/bill-murray-toaster.gif 525 _
-: Oh! And the only environment this application had was production
+: Oh! And the only environment this application was in was production
+: And there was no time to implement a new key management system
 
 * Let's Talk Certificate Chains
 .image img/2-chainz-tell-em.png _ 525
@@ -94,7 +95,7 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 : With Go of course!
 
 * Three Go Packages: log
-- The go `log` package is pretty self explanatory
+- The go [[https://golang.org/pkg/log/][`log`]] package is pretty self explanatory
 - Package that enables logging
 - Neeeded a spectacular failure at the sign of trouble
 - `log` has three helper functions: `print`, `fatal`, and `panic`
@@ -104,7 +105,7 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 .caption Hugging Gophers by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
 
 * Three Go Packages: crypto/tls
-- The Go `crypto/tls` package partially implements TLS 1.2, as specified in [[https://tools.ietf.org/html/rfc5246][RFC 5246]]
+- The Go [[https://golang.org/pkg/crypto/tls/][`crypto/tls`]] package partially implements TLS 1.2, as specified in [[https://tools.ietf.org/html/rfc5246][RFC 5246]]
 - Package configures usable SSL/TLS versions
 - Identifies preferred cipher suites and elliptic curves used during handshakes
 - This is the package that handles connections securely
@@ -113,7 +114,7 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 
 * Three Go Packages: net/http
 - Go implementation of HTTP
-- `net/http` has a function called `ListenAndServeTLS`
+- [[https://golang.org/pkg/net/http/][`net/http`]] has a function called `ListenAndServeTLS`
 - ListenAndServeTLS provides the desired certificate checking functionality
 - "If the certificate is signed by a certificate authority, the certFile should be the concatenation of the server's certificate, any intermediates, and the CA's certificate."
 .image img/GOPHER_INCLUSION.png _ 275
@@ -128,14 +129,16 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 .caption Gopher Share by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
 
 * Fail Spectacularly
-- I ❤️ DevOps. I embrace failure.
+- I ❤️ DevOps
+- I embrace failure
 - `log.Fatal(srv.ListenAndServeTLS("/etc/ssl-tester/tls.crt",` `"/etc/ssl-tester/tls.key"))`
 - Defines path of certificate files to use
 - Also logs a fatal error if certificate is not valid
 - Fails Fast
-.image img/nuclear-weapons-test-explosion.jpg 250 _
+.image img/nuclear-weapons-test-explosion.jpg 225 _
 : I love DevOps and I embrace failure
 : log allows us to fail quickly if the certificates aren't in accordance with RFC
+: If it's not right it fails
 : This is the beauty of crypto/tls
 : Stuff in the standard library JUST WORKS
 
@@ -163,4 +166,9 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 - Can be safely deployed to any public server
 - External testing run against it for extra vetting
 .image img/GOPHER_MIC_DROP.png 225 _
-.caption Gopher Mic Drop by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]] 
+.caption Gopher Mic Drop by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
+: The tool does exactly what I need it to do and nothing more
+: It fails when the certificate chain provided is incorrect
+: It's lightweight and publicly accessible
+: I'm able to test via third-parties
+: It's a tiny, single binary
