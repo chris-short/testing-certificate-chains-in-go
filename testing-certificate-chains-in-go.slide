@@ -10,6 +10,7 @@ https://devopsish.com
 * Introduction
 Chris Short
 
+- Manager of DevOps at [[http://www.bankrate.com][Bankrate]]
 - [[https://opensource.com/users/chrisshort][opensource.com]] and [[https://dzone.com/users/2868764/chrisshort.html][DZone]] Contributor
 - Contributed to [[https://opensource.com/open-organization/resources/culture-change][The Open Organization Guide to IT Culture Change]]
 - [[https://www.devopsdays.org/][DevOpsDays]] Speaker and Organizer
@@ -21,6 +22,7 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 [[https://opensource.com/article/17/4/testing-certificate-chains-34-line-go-program][Golang to the rescue: Saving DevOps from TLS turmoil]]
 
 : Hi! I'm Chris!
+: I manage DevOps activities at Bankrate (we're hiring)
 : I work in the DevOps space
 : I contribute content a few places
 : I run a DevOps Newsletter called DevOps'ish if you're into those plese check it out
@@ -84,12 +86,6 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 : Look at statistical probabilities and start shuffling keys around?
 : The series of games you have to play with openssl or nginx or some other method aren't intuitive
 : Do you know how hard this is to explain to people?
-
-* Never Forget
-.image img/punch-card.jpg _ 500
-.caption This was once a good UI and UX
-: Don't forget...
-: THIS (holds up punch card) was good UX and UI not too long ago
 
 * So What Does Any Good Engineer Do?
 .image img/go_build.png _ 500
