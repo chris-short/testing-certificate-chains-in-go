@@ -19,50 +19,54 @@ Chris Short
 
 This talk was derived from an opensource.com article I wrote in April 2017:
 [[https://opensource.com/article/17/4/testing-certificate-chains-34-line-go-program][Golang to the rescue: Saving DevOps from TLS turmoil]]
-
 : Hi! I'm Chris!
-: I contribute content a few places
 : I work in the DevOps space
-: I run a DevOps Newsletter called DevOps'ish if you're into those
+: I contribute content a few places
+: I run a DevOps Newsletter called DevOps'ish if you're into those plese check it out
 : This talk was dervied from an opensource.com article I wrote in April 2017
 
 * But Most Importantly
 .image img/gopherize-me-chris-short.png _ 550
 .caption Me in Gopher Form by [[https://gopherize.me/][Gopherize.me]]
+: I'm many things
 : But Most Importantly, I'm a Gopher
 
 * Not Too Long Ago in a Place of Work Far, Far Away...
 .image img/backstory.png 550 _
-: My team inherited an application
+: My team of merry DevOps'ers inherited an application
 : A third-party built the app a few years ago 
-: Had long been abandoned
+: The app had long been abandoned
 : Before we could do any re-engineering work, we had to resolve a critical issue.
 : The certificates were about to expire!
 
 * 
 .image img/bill-murray-toaster.gif 525 _
-: Oh! And the only environment this application was in was production
+: Oh!
+: And the only environment this application was in was production
 : And there was no time to implement a new key management system
+: And it was a pet project of someone in senior leadership
 
 * Let's Talk Certificate Chains
 .image img/2-chainz-tell-em.png _ 525
 .caption 2 Chainz (we can talk rap music later)
 : Let's Talk Certificate Chains for a minute
-: HTTPS, SSL it's all TLS, right?
-: In my opinion, if you're using TLS you better have a rock solid configuration
+: HTTPS, SSL... it's all TLS, right?
+: In my opinion, if you're using TLS you MUST have a rock solid configuration
 : This means you have to include the certificate chain in the correct order
 : This is no longer optional in the post-Heartbleed world
 : The Internets are watching
 
 * This is the Goal
 .image img/chrisshort_net-qualys.png 600 _
+: This is the goal
 : If you are going to bother to encrypt your traffic you better do it right
 : This is what we're aiming for; an A+
-: At a previous employer we obtained certs from a reputable vendor that our company was cool with
-: I prefer Let's Encrypt but some companies aren't there yet for various reasons
+: At this company, we obtained certs from a preferred vendor that our company was cool with
+: I prefer Let's Encrypt but some companies aren't comfortable with that yet for various reasons
+: The process goes like this...
 : You generate your CSR and private key
 : You send the CSR to the vendor
-: The certificate arrives but doesn't have an intermediate key in chain
+: The certificate arrives but usually doesn't have an intermediate key in chain because... vendors be vendoring
 
 * NBD ... OMG
 .image img/ssl-vendors-suck.png 550 _
@@ -83,13 +87,14 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 * Never Forget
 .image img/punch-card.jpg _ 500
 .caption This was once a good UI and UX
-: Don't forget THIS (holds up punch card) was good UX and UI not too long ago
+: Don't forget...
+: THIS (holds up punch card) was good UX and UI not too long ago
 
 * So What Does Any Good Engineer Do?
 .image img/go_build.png _ 500
 .caption Go Build by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
-: I needed a tool that would fail if the certificate chain provided was incorrect
-: I wanted a lightweight tool that could be publicly accessible
+: We needed a tool that would fail if the certificate chain provided was incorrect
+: We wanted a lightweight tool that could be publicly accessible
 : Conducting a third-party analysis of the certificates and configuration was also a requirement
 : There were no tools that I could find meeting these needs
 : So I decided to build my own
@@ -98,12 +103,15 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 * Three Go Packages: log
 - The go [[https://golang.org/pkg/log/][`log`]] package is pretty self explanatory
 - Package that enables logging
-- Neeeded a spectacular failure at the sign of trouble
+- Needed a spectacular failure at the sign of trouble
 - `log` has three helper functions: `print`, `fatal`, and `panic`
 - Output from the package goes to `stderr`
 - Used a `fatal` error to get the web server to stop and log any issue
 .image img/hugging_gophers.png _ 225
 .caption Hugging Gophers by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
+: Let me just say the Go standard library is amazing!
+: log is designed beautifully
+: Using fatal to break the app and log to stderr if something isn't right is great!
 
 * Three Go Packages: crypto/tls
 - The Go [[https://golang.org/pkg/crypto/tls/][`crypto/tls`]] package partially implements TLS 1.2, as specified in [[https://tools.ietf.org/html/rfc5246][RFC 5246]]
@@ -112,6 +120,8 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 - This is the package that handles connections securely
 .image img/GOPHER_STAR_WARS.png _ 375
 .caption Gopher Star Wars by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
+: The crypto/tls package is a splendid implementation of the RFC
+: "It just works."
 
 * Three Go Packages: net/http
 - Go implementation of HTTP
@@ -120,9 +130,13 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 - "If the certificate is signed by a certificate authority, the certFile should be the concatenation of the server's certificate, any intermediates, and the CA's certificate."
 .image img/GOPHER_INCLUSION.png _ 275
 .caption Gopher Inclusion by [[https://github.com/ashleymcnamara/gophers][Ashley McNamara]]
+: net/http has the ListenAndServeTLS function and it's awesome
+: It fails if your certs aren't up to snuff or ordered properly
+: It helps us Gophers out immensely by enforcing best practices
 
 * main: mux, cfg, srv
 - Code creates a `mux`, short for HTTP request multiplexer
+- I ❤️ multiplexers (it's a long story that involves analog signals)
 - `mux` has a function that creates an HTTP server with headers and content (Hello World!)
 - `cfg` brings in all the TLS bits seen in a solid web server config
 - `srv` puts the pieces together and defines what port to listen on
@@ -138,9 +152,7 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 - Fails Fast
 .image img/nuclear-weapons-test-explosion.jpg 225 _
 : I love DevOps and I embrace failure
-: log allows us to fail quickly if the certificates aren't in accordance with RFC
-: If it's not right it fails
-: This is the beauty of crypto/tls
+: The code allows us to fail quickly if the certificates aren't in accordance with RFC
 : Stuff in the standard library JUST WORKS
 
 * It's Open Source!
@@ -153,7 +165,9 @@ This talk was derived from an opensource.com article I wrote in April 2017:
 * It Works!
 .image img/ssl-tester-output.png 800 _
 : Yes it Works
-: Yes you can access it now
+: Yes you can access it right now!
+: https://ssl-tester.chrisshort.net redirects you to a reference implementation
+
 
 * No. It Really Works!
 .image img/ssltest-ssl-tester-chrisshort-net.png 600 _
